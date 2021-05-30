@@ -9,12 +9,16 @@ class DishDetail_info extends Component{
         
         // stores iproperties of this component
         this.state = {
-            selectedDishDetail_info: this.props.dsdetail
+            // selectedDishDetail_info: this.props.dsdetail
+            selectedDishDetail_info:null
+            
         };
-
+        console.log("this.state---Dishdetial--->",this.state);
+        // undefined--->this.props.dsdetail
+        console.log("dstail---->",this.props.dsdetail);
 
     }
-
+    //渲染菜单本身（图片+纯标题）
     renderDish(dish) {
 
         if (dish != null) {
@@ -36,11 +40,12 @@ class DishDetail_info extends Component{
             );
         }
     }
-
+// 渲染评论
     renderComments(comments){
         if (comments == null) {
             return (<div></div>)
         }
+        // console.alert(comments.type());
         const cmnts = comments.map(comment => {
             return (
                 <li key={comment.id} class ="text-left">
@@ -60,6 +65,7 @@ class DishDetail_info extends Component{
             <div className='col-12 col-md-5 m-1'>
                 <h4 class = "text-left"> Comments </h4>
                 <ul className='list-unstyled'>
+                    {/* 此处是经过map循环返回的一系列comment */}
                     {cmnts}
                 </ul>
 
@@ -70,8 +76,8 @@ class DishDetail_info extends Component{
 
     render(){
         const dish = this.props.dish
-
-        console.log(dish);
+        console.log("DishdetailComponent render 被调用");
+        console.log("dish------->",dish);
         
         if (dish == null) {
             return (<div></div>);
@@ -79,8 +85,10 @@ class DishDetail_info extends Component{
 
         const dishItem = this.renderDish(dish);
         const dishComment = this.renderComments(dish.comments);
-
+        console.log("连续渲染一个菜的详细信息+评论");
         return (
+            // 连续渲染一个菜的详细信息+评论
+            
             <div className='row'>
                 {dishItem}
                 {dishComment}
