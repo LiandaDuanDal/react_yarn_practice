@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
+// import { Media } from 'reactstrap';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
   CardTitle } from 'reactstrap';
 
@@ -47,7 +47,8 @@ class Menu extends Component {
 
     // 
   onDishSelect(dish) {
-    // setState是从componet继承过来的
+    // setState()是从componet继承过来的
+    // 传进去的参数是{键:值}
     this.setState({ selectedDish: dish});
   }
 // redercomment渲染评论
@@ -71,15 +72,22 @@ class Menu extends Component {
     render() {
       // make the menu code short
       // 指定每一个card的渲染方式
-      // 并使用map执行遍历
+      // 并使用map执行遍历--单次遍历渲染一次所有元素
       // props也是component的属性
+
+      // 当一个dish从app.js扔给Menu，用this.props来读取这个属性
+      // 当声明这个menu继承自componet这个类的时候，它的底层就自动有了prop。
+      // 这里面储存了所有传给他的参数。
         const menu = this.props.dishes.map((dish) => {
+          // 这种()=>的函数写法不用声明函数名，直接往括号里方参数
+          // 用了一次就不用了
             return (
               // render the menu
               <div  className="col-12 col-md-5 m-1">
                 <Card key={dish.id}
                 // define the click antion
-                  onClick={() => this.onDishSelect(dish)}>
+                // 被点击之后成功修改本地的这个{ selectedDish: dish}
+                  onClick={(None) => this.onDishSelect(dish)}>
                   <CardImg width="100%" src={dish.image} alt={dish.name} />
                   <CardImgOverlay>
                       <CardTitle>{dish.name}</CardTitle>
@@ -93,15 +101,20 @@ class Menu extends Component {
             <div className="container">
 
                 <div className="row">
+                  {/* 先渲染上述的基础菜单 */}
                     {menu}
                 </div>
                 {/* 这个MenuComponent里面的selectDish本来是null */}
                 {/* 但是一旦调用了onclick方法，这个selectDish就有了card对应的dish */}
                 {/* 于是DishDetail_info就可以利用这个dish */}
+                {/* 点击动作发生，读取当前state对应的dish值 */}
               <DishDetail_info dish={this.state.selectedDish} />
             </div>
         );
     }
 }
+// The state object is where you store property values that belongs to the component.
+
+// When the state object changes, the component re-renders.
 // export the compunnet from the file
 export default Menu;

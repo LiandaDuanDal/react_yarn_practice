@@ -8,11 +8,14 @@ class DishDetail_info extends Component{
         console.log(props);
         
         // stores iproperties of this component
+        // ==============================
         this.state = {
             // selectedDishDetail_info: this.props.dsdetail
             selectedDishDetail_info:null
             
         };
+        // ==============================
+
         console.log("this.state---Dishdetial--->",this.state);
         // undefined--->this.props.dsdetail
         console.log("dstail---->",this.props.dsdetail);
@@ -46,7 +49,7 @@ class DishDetail_info extends Component{
             return (<div></div>)
         }
         // console.alert(comments.type());
-        const cmnts = comments.map(comment => {
+        const cmnts = comments.map((comment) => {
             return (
                 <li key={comment.id} class ="text-left">
                     <p>{comment.comment}</p>
@@ -72,20 +75,25 @@ class DishDetail_info extends Component{
             </div>
         )
     }
-
-
+    // Props are arguments passed into React components.
+    // Props are passed to components via HTML attributes.
+    // https://www.w3schools.com/react/react_state.asp
     render(){
-        const dish = this.props.dish
+        const dish = this.props.dish;
+
+        // ==============================
         console.log("DishdetailComponent render 被调用");
         console.log("dish------->",dish);
-        
+        // ==============================
         if (dish == null) {
             return (<div></div>);
         }
-
+        // ==============================
         const dishItem = this.renderDish(dish);
         const dishComment = this.renderComments(dish.comments);
+        // ==============================
         console.log("连续渲染一个菜的详细信息+评论");
+        // ==============================
         return (
             // 连续渲染一个菜的详细信息+评论
             
