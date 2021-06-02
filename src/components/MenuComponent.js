@@ -46,11 +46,14 @@ class Menu extends Component {
 
 
     // 
-  onDishSelect(dish) {
-    // setState()是从componet继承过来的
-    // 传进去的参数是{键:值}
-    this.setState({ selectedDish: dish});
-  }
+
+
+  // onDishSelect(dish) {
+  //   // setState()是从componet继承过来的
+  //   // 传进去的参数是{键:值}
+  //   this.setState({ selectedDish: dish});
+  // }
+
 // redercomment渲染评论
   // renderDish_comment(dish) {
   //     if (dish != null)
@@ -78,13 +81,14 @@ class Menu extends Component {
       // 当一个dish从app.js扔给Menu，用this.props来读取这个属性
       // 当声明这个menu继承自componet这个类的时候，它的底层就自动有了prop。
       // 这里面储存了所有传给他的参数。
+      // 这个dishes是跟着Main里面的dishes走的
         const menu = this.props.dishes.map((dish) => {
           // 这种()=>的函数写法不用声明函数名，直接往括号里方参数
           // 用了一次就不用了
             return (
               // render the menu
               <div  className="col-12 col-md-5 m-1">
-                
+                {/* 这里指定了一个card对应了这个dish的id */}
                 <Card key={dish.id}
                         onClick={() => this.props.onClick(dish.id)}>
                   <CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -97,6 +101,7 @@ class Menu extends Component {
         });
 
         return (
+          // 所有小的菜谱单元包含在container里面
             <div className="container">
 
                 <div className="row">
