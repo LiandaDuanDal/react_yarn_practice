@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from "reactstrap";
 
-class DishDetail_info extends Component{
+class DishDetail extends Component{
     constructor(props) {
         super(props);
 
@@ -11,7 +11,7 @@ class DishDetail_info extends Component{
         // ==============================
         this.state = {
             // selectedDishDetail_info: this.props.dsdetail
-            selectedDishDetail_info:null
+            selectedDishDetail:null
             
         };
         // ==============================
@@ -96,14 +96,15 @@ class DishDetail_info extends Component{
         // ==============================
         return (
             // 连续渲染一个菜的详细信息+评论
-            
-            <div className='row'>
-                {dishItem}
-                {dishComment}
+            <div class = "container">
+                <div className='row'>
+                    {dishItem}
+                    {dishComment}
+                </div>
             </div>
         )
     }
 
 }
 
-export default DishDetail_info;
+export default DishDetail;

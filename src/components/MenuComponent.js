@@ -4,7 +4,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
   CardTitle } from 'reactstrap';
 
 //导入dishinfo
-import DishDetail_info from './DishdetailComponent.js';
+// import DishDetailo from './DishdetailComponent.js';
 
 // 新建menu类继承自componeng
 class Menu extends Component {
@@ -84,10 +84,9 @@ class Menu extends Component {
             return (
               // render the menu
               <div  className="col-12 col-md-5 m-1">
+                
                 <Card key={dish.id}
-                // define the click antion
-                // 被点击之后成功修改本地的这个{ selectedDish: dish}
-                  onClick={(None) => this.onDishSelect(dish)}>
+                        onClick={() => this.props.onClick(dish.id)}>
                   <CardImg width="100%" src={dish.image} alt={dish.name} />
                   <CardImgOverlay>
                       <CardTitle>{dish.name}</CardTitle>
@@ -106,9 +105,9 @@ class Menu extends Component {
                 </div>
                 {/* 这个MenuComponent里面的selectDish本来是null */}
                 {/* 但是一旦调用了onclick方法，这个selectDish就有了card对应的dish */}
-                {/* 于是DishDetail_info就可以利用这个dish */}
+                {/* 于是DishDetailo就可以利用这个dish */}
                 {/* 点击动作发生，读取当前state对应的dish值 */}
-              <DishDetail_info dish={this.state.selectedDish} />
+              {/* <DishDetailo dish={this.state.selectedDish} /> */}
             </div>
         );
     }
