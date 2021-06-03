@@ -126,6 +126,11 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay,CardTitle } from 'reactstrap';
 
+// 
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+// 
+
     function RenderMenuItem ({dish, onClick}) {
         return (
             <Card
