@@ -76,8 +76,8 @@ import { Link } from 'react-router-dom';
             return (<div></div>);
         }
         // ==============================
-        const dishItem =   RenderDish(dish);
-        const dishComment =  RenderComments(dish.comments);
+        // const dishItem =   RenderDish(dish);
+        // const dishComment =  RenderComments(dish.comments);
         // ==============================
         console.log("连续渲染一个菜的详细信息+评论");
         // ==============================
@@ -107,12 +107,12 @@ import { Link } from 'react-router-dom';
                 </div>                
             </div>
             <div className="row">
-                <div className="col-12 col-md-5 m-1">
+                {/* <div className="col-12 col-md-5 m-1"> */}
                     <RenderDish dish={props.dish} />
-                </div>
-                <div className="col-12 col-md-5 m-1">
+                {/* </div> */}
+                {/* <div className="col-12 col-md-5 m-1"> */}
                     <RenderComments comments={props.comments} />
-                </div>
+                {/* </div> */}
             </div>
             </div>
         );
