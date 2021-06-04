@@ -8,6 +8,8 @@ import Menu from './components/MenuComponent';
 import {DISHED, DISHES} from './shared/dishes';
 // 
 import Main from './components/MainComponent';
+// 
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 //   constructor(props){
@@ -37,10 +39,15 @@ class App extends Component {
 // practice 2 before assignment 2
 render() {
   return (
-    <div className="App">
-      <Main />
-    </div>
-  );
+    // <div className="App">
+    //   <Main />
+    // </div>
+    <BrowserRouter>
+      <div className="App">
+        <Main />
+      </div>
+  </BrowserRouter>
+    );
 }
 
 
