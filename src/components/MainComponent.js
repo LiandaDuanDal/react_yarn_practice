@@ -18,6 +18,8 @@ import Contact from './ContactComponent';
 import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
+// about
+import About from './AboutComponent';
 
 class Main extends Component {
 
@@ -52,6 +54,16 @@ class Main extends Component {
             comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} />
       );
     };
+
+
+    // about 
+    const AboutUsPage = () => {
+      return(
+          <About 
+              leaders={this.state.leaders}
+          />
+      );
+  };
     
     return (
 
@@ -66,7 +78,12 @@ class Main extends Component {
               <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />  
               {/*  */}
               <Route path='/menu/:dishId' component={DishWithId} />
-              <Route exact path='/contactus' component={Contact} />            
+              {/*  */}
+              <Route exact path='/contactus' component={Contact} />    
+
+              
+              {/* About         */}
+              <Route exact path="/aboutus" component={ AboutUsPage } />
               <Redirect to="/home" />
           </Switch>
 
