@@ -36,7 +36,7 @@ class Contact extends Component {
             touched: { ...this.state.touched, [field]: true }
         });
     }
-
+// 错误检测
     validate(firstname, lastname, telnum, email) {
         const errors = {
             firstname: '',
@@ -54,7 +54,7 @@ class Contact extends Component {
             errors.lastname = 'Last Name should be >= 3 characters';
         else if (this.state.touched.lastname && lastname.length > 10)
             errors.lastname = 'Last Name should be <= 10 characters';
-
+// 正则表达式
         const reg = /^\d+$/;
         if (this.state.touched.telnum && !reg.test(telnum))
             errors.telnum = 'Tel. Number should contain only numbers';
@@ -187,7 +187,7 @@ render() {
                                         onChange={this.handleInputChange} />
                                     <FormFeedback>{errors.email}</FormFeedback>
                                 </Col>
-                            </FormGroup>
+                            </FormGroup>123
                             <FormGroup row>
                                 <Col md={{size: 6, offset: 2}}>
                                     <FormGroup check>
