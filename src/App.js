@@ -10,6 +10,11 @@ import {DISHED, DISHES} from './shared/dishes';
 import Main from './components/MainComponent';
 // 
 import { BrowserRouter } from 'react-router-dom';
+//
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
+const store = ConfigureStore();
 
 class App extends Component {
 //   constructor(props){
@@ -42,11 +47,13 @@ render() {
     // <div className="App">
     //   <Main />
     // </div>
+    <Provider store={store}>
     <BrowserRouter>
       <div className="App">
         <Main />
       </div>
-  </BrowserRouter>
+    </BrowserRouter>
+  </Provider>
     );
 }
 
